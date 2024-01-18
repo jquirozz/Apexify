@@ -1,0 +1,70 @@
+:root {
+    --main: #000;
+    --sec: #fff;
+}
+// SCSS Variables -> Better syntaxis
+$main: var(--main);
+$sec: var(--sec);
+
+// EXPORTING
+@mixin flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@mixin grid-center {
+    display: grid;
+    place-items: center;
+}
+@mixin absolute-center {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+// RESET
+// Fonts
+
+// Montserrat
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    user-select: none;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+}
+
+body {
+    color: $sec;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat", sans-serif;
+    text-wrap: balance;
+}
+
+button,
+input,
+textarea {
+    border: none;
+    outline: none;
+}
+
+a {
+    color: inherit;
+}
+
+p {
+    text-wrap: pretty;
+}
