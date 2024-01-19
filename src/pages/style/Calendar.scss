@@ -1,0 +1,65 @@
+@use "/src/index.scss" as *;
+
+.Calendar {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: $gap;
+
+    .CalRounds {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: $gap;
+    }
+
+    .years,
+    .rounds {
+        display: flex;
+        flex-direction: column;
+
+        gap: 3px;
+
+        overflow: hidden;
+        height: calc(100dvh - $navbarHeight - ($gap * 3));
+
+        border-radius: 3px;
+
+        & a {
+            padding: 0.75rem;
+
+            color: #222;
+            background: #ccc;
+        }
+        .active {
+            color: $sec;
+            background: $main;
+        }
+    }
+    .years {
+        min-width: 125px;
+        font-size: 1.5rem;
+
+        & a {
+            @include grid-center;
+            & h3 {
+                font-weight: 900;
+            }
+        }
+    }
+}
+
+.CalRounds {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: $gap;
+
+    .rounds {
+        min-width: 250px;
+        font-size: 1.25rem;
+
+        & a {
+            & h3 {
+                font-weight: 800;
+            }
+        }
+    }
+}

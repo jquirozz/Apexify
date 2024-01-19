@@ -1,2 +1,31 @@
+@use "/src/index.scss" as *;
+
 .NavBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-right: 1rem;
+    padding-left: 0.75rem;
+
+    height: $navbarHeight;
+
+    border-radius: 3px;
+
+    background: $main;
+
+    .logo {
+        display: grid;
+        place-items: center;
+
+        & img {
+            height: $navbarHeight - 0.25rem;
+            aspect-ratio: 1;
+            object-fit: contain;
+        }
+    }
+    .links {
+        display: flex;
+        gap: 1rem;
+    }
 }

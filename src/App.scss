@@ -1,5 +1,14 @@
 @use "/src/index.scss" as *;
 
 .App {
-    background: $main;
+    display: grid;
+    grid-template-rows: auto 1fr;
+
+    padding: $gap;
+    gap: $gap;
+
+    min-height: 100svh;
+    max-height: 100dvh;
+
+    background: #000;
 }
