@@ -19,7 +19,7 @@
         gap: 3px;
 
         overflow: hidden;
-        height: calc(100dvh - $navbarHeight - ($gap * 3));
+        height: $height;
 
         border-radius: 3px;
 

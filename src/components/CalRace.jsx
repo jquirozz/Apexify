@@ -1,68 +1,44 @@
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
-import { formatDate } from '../services/formatDate'
+import UseRaceInfo from '../hooks/UseRaceInfo'
+import UseTextParams from '../hooks/UseTextParams'
 
 import './style/CalRace.scss'
 
 function CalRace () {
   const { yearId: year, roundId: round } = useParams()
-
-  // To show it on screen
-  const [param, setParam] = useState({ yearText: year, roundText: round })
-  const { yearText, roundText } = param
-  useEffect(() => {
-    setParam({ yearText: year, roundText: round })
-  }, [year, round, setParam])
-
-  useEffect(() => {
-    fetchData({ year, round })
-  }, [year, round])
-
-  const [race, setRace] = useState({})
-  const fetchData = async ({ year, round }) => {
-    try {
-      const res = await fetch(`https://ergast.com/api/f1/${year}/${round}.json`)
-      if (res.ok) {
-        const resJson = await res.json()
-        const races = resJson.MRData?.RaceTable?.Races
-
-        if (races && races.length > 0) {
-          const path = races[0]
-          const info = {
-            date: formatDate(path.date),
-            time: path.time,
-
-            circuitId: path.Circuit?.circuitId,
-            circuitName: path.Circuit?.circuitName,
-            locality: path.Circuit?.Location?.locality,
-            country: path.Circuit?.Location?.country,
-
-            sessions: [
-              { name: 'FP1', date: formatDate(path?.FirstPractice?.date) },
-              { name: 'FP2', date: formatDate(path?.SecondPractice?.date) },
-              { name: 'FP3', date: formatDate(path?.ThirdPractice?.date) },
-              { name: 'SPRINT', date: formatDate(path?.Sprint?.date) },
-              { name: 'QUALY', date: formatDate(path?.Qualifying?.date) }
-            ]
-          }
-          setRace(info)
-        }
-      }
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  useEffect(() => {
-    console.log(race)
-  }, [race])
+  const { yearText, roundText } = UseTextParams({ year, round })
+  const { race } = UseRaceInfo({ year, round })
+  const { date, time, locality, country, circuitName, sessions } = race
 
   return (
     <section className='CalRace'>
-      <h2>
-        Info test: {yearText} / Round {roundText}
-      </h2>
+      <header className='date'>
+        <h1>{date}</h1>
+        {time !== 'Invalid Date' && <h2>{time}</h2>}
+      </header>
+      <section className='info'>
+        <header className='round'>
+          <section>
+            <h3>ROUND {roundText}</h3>
+            <h5>{circuitName}</h5>
+            <h4>
+              {locality}, {country}
+            </h4>
+          </section>
+          <Link to={`/result/${yearText}/${roundText}`}>
+            <h2>FULL RESULTS</h2>
+          </Link>
+        </header>
+        <footer className='sessions'>
+          {sessions?.map(({ name: sName, date: sDate }) => (
+            <div className='session' key={`${date}${sName}`}>
+              <h2>{sName}</h2>
+              <h3>{sDate && sDate}</h3>
+            </div>
+          ))}
+        </footer>
+      </section>
     </section>
   )
 }
