@@ -4,7 +4,7 @@ import { useParams, NavLink, Outlet } from 'react-router-dom'
 import { useDraggable } from 'react-use-draggable-scroll'
 
 // HOOKS
-import UseRounds from './../hooks/UseRounds'
+import UseRounds from '../../hooks/UseRounds'
 
 function CalRounds () {
   const ref = useRef()

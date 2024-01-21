@@ -6,7 +6,7 @@ function UseTextParams ({ year, round }) {
 
   useEffect(() => {
     setParam({ yearText: year, roundText: round })
-  }, [year, round, setParam])
+  }, [year, round])
 
   return { yearText, roundText }
 }

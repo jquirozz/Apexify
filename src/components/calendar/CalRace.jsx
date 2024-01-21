@@ -1,19 +1,23 @@
+/* eslint-disable multiline-ternary */
 import { useParams, Link } from 'react-router-dom'
 
-import CalSesions from '../components/CalSessions'
-import CountDown from '../components/CountDown.jsx'
+import Loader from '../Loader.jsx'
+import CalSesions from './CalSessions.jsx'
+import CountDown from './CountDown.jsx'
 
-import UseRaceInfo from '../hooks/UseRaceInfo'
-import UseTextParams from '../hooks/UseTextParams'
+import UseRaceInfo from '../../hooks/UseRaceInfo.jsx'
+import UseTextParams from '../../hooks/UseTextParams.jsx'
 
-import './style/CalRace.scss'
+import './CalRace.scss'
 
 function CalRace () {
   const { yearId: year, roundId: round } = useParams()
   const { yearText, roundText } = UseTextParams({ year, round })
-  const { race } = UseRaceInfo({ year, round })
+  const { race, loading } = UseRaceInfo({ year, round })
   const { date, time, locality, country, circuitName, sessions, fromToday } =
     race
+
+  if (loading) return <Loader />
 
   const isDone = () => {
     if (fromToday < 0) {
@@ -50,11 +54,11 @@ function CalRace () {
           </section>
           {results}
         </header>
-        {sessions?.length > 0 && <CalSesions sessions={sessions} date={date} />}
-        {sessions?.length === 0 && fromToday > 0 && (
+        {sessions?.length > 0 ? (
+          <CalSesions sessions={sessions} date={date} />
+        ) : fromToday > 0 ? (
           <CountDown time={fromToday} />
-        )}
-        {sessions?.length === 0 && fromToday < 0 && (
+        ) : (
           <h2 className='nodata'>No sessions data available</h2>
         )}
       </section>

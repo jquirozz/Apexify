@@ -4,6 +4,7 @@ import { format, subDays } from 'date-fns'
 import { formatTime } from '../services/formatTime'
 
 function UseRaceInfo ({ year, round }) {
+  const [loading, setLoading] = useState(null)
   const [race, setRace] = useState({})
 
   useEffect(() => {
@@ -12,6 +13,7 @@ function UseRaceInfo ({ year, round }) {
 
   const fetchData = async ({ year, round }) => {
     try {
+      setLoading(true)
       const res = await fetch(`https://ergast.com/api/f1/${year}/${round}.json`)
       if (res.ok) {
         const resJson = await res.json()
@@ -123,10 +125,12 @@ function UseRaceInfo ({ year, round }) {
       }
     } catch (error) {
       console.error(error)
+    } finally {
+      setLoading(false)
     }
   }
 
-  return { race }
+  return { race, loading }
 }
 
 export default UseRaceInfo

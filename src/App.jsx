@@ -2,9 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 
 import Calendar from './pages/Calendar'
-
-import CalRounds from './components/CalRounds'
-import CalRace from './components/CalRace'
+import CalRounds from './components/calendar/CalRounds'
+import CalRace from './components/calendar/CalRace'
 
 import './App.scss'
 
