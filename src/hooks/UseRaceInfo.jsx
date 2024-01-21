@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { format, subDays } from 'date-fns'
 
-import { formatDate } from '../services/formatDate'
 import { formatTime } from '../services/formatTime'
 
 function UseRaceInfo ({ year, round }) {
@@ -18,10 +17,17 @@ function UseRaceInfo ({ year, round }) {
         const resJson = await res.json()
         const races = resJson.MRData?.RaceTable?.Races
 
+        const fromToday = date => {
+          const current = new Date()
+          const newDate = new Date(date)
+          return newDate - current
+        }
+
         if (races && races.length > 0) {
           const path = races[0]
           const info = {
-            date: formatDate(path.date),
+            fromToday: fromToday(path.date),
+            date: format(path.date, 'MM/dd'),
             time: formatTime(path.time),
 
             circuitId: path.Circuit?.circuitId,
@@ -84,10 +90,10 @@ function UseRaceInfo ({ year, round }) {
             })
             const formattedSessions = customOrder.map(session => ({
               name: session.name,
-              date: formatDate(session.date)
+              date: format(session.date, 'MM/dd')
             }))
             info.sessions = formattedSessions
-          } else {
+          } else if (year >= 2006 && year <= 2020) {
             const oldSessions = [
               {
                 name: 'QUALY',
@@ -107,6 +113,8 @@ function UseRaceInfo ({ year, round }) {
               }
             ]
             info.sessions = oldSessions
+          } else {
+            info.sessions = []
           }
 
           console.log(info)
