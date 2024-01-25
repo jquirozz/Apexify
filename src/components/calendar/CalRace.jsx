@@ -11,9 +11,9 @@ import UseTextParams from '../../hooks/UseTextParams.jsx'
 import './CalRace.scss'
 
 function CalRace () {
-  const { yearId: year, roundId: round } = useParams()
-  const { yearText, roundText } = UseTextParams({ year, round })
-  const { race, loading } = UseRaceInfo({ year, round })
+  const { yearId, roundId } = useParams()
+  const { yearText, roundText } = UseTextParams({ yearId, roundId })
+  const { race, loading } = UseRaceInfo({ yearId, roundId })
   const { date, time, locality, country, circuitName, sessions, fromToday } =
     race
 

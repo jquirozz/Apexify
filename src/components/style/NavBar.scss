@@ -5,13 +5,10 @@
     align-items: center;
     justify-content: space-between;
 
-    padding-right: 1rem;
     padding-left: 0.75rem;
-
     height: $navbarHeight;
 
-    border-radius: 3px;
-
+    border-radius: 5px;
     background: $main;
 
     .logo {
@@ -26,6 +23,24 @@
     }
     .links {
         display: flex;
-        gap: 1rem;
+        gap: .2rem;
+        background: #fff;
+
+        & a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0 1rem;
+
+            background: $main;
+
+            & svg {
+                font-size: 1.25rem;
+            }
+            & h2 {
+                font-size: 1.25rem;
+                font-weight: 600;
+            }
+        }
     }
 }

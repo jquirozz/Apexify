@@ -5,6 +5,8 @@ import Calendar from './pages/Calendar'
 import CalRounds from './components/calendar/CalRounds'
 import CalRace from './components/calendar/CalRace'
 
+import RaceResult from './pages/RaceResult'
+
 import './App.scss'
 
 function App () {
@@ -18,6 +20,7 @@ function App () {
               <Route path=':roundId' element={<CalRace />} />
             </Route>
           </Route>
+          <Route path='/result/:yearId/:roundId' element={<RaceResult />} />
         </Routes>
       </BrowserRouter>
     </div>

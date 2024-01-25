@@ -3,13 +3,13 @@ import { format, subDays } from 'date-fns'
 
 import { formatTime } from '../services/formatTime'
 
-function UseRaceInfo ({ year, round }) {
+function UseRaceInfo ({ yearId, roundId }) {
   const [loading, setLoading] = useState(null)
   const [race, setRace] = useState({})
 
   useEffect(() => {
-    fetchData({ year, round })
-  }, [year, round])
+    fetchData({ year: yearId, round: roundId })
+  }, [yearId, roundId])
 
   const fetchData = async ({ year, round }) => {
     try {

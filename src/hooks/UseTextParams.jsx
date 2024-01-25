@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 
-function UseTextParams ({ year, round }) {
-  const [param, setParam] = useState({ yearText: year, roundText: round })
+function UseTextParams ({ yearId, roundId }) {
+  const [param, setParam] = useState({ yearText: yearId, roundText: roundId })
   const { yearText, roundText } = param
 
   useEffect(() => {
-    setParam({ yearText: year, roundText: round })
-  }, [year, round])
+    setParam({ yearText: yearId, roundText: roundId })
+  }, [yearId, roundId])
 
   return { yearText, roundText }
 }
