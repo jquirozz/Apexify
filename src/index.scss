@@ -8,7 +8,7 @@ $sec: var(--sec);
 
 $navbarHeight: 4rem;
 $gap: 0.5rem;
-$height: calc(100dvh - $navbarHeight - ($gap * 3));
+$height: calc(100dvh - $navbarHeight);
 
 // EXPORTING
 @mixin flex-center {

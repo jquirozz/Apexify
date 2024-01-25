@@ -1,12 +1,12 @@
 /* eslint-disable multiline-ternary */
 import { useParams, Link } from 'react-router-dom'
 
-import Loader from '../Loader.jsx'
-import CalSesions from './CalSessions.jsx'
-import CountDown from './CountDown.jsx'
+import Loader from '../Loader'
+import CalSesions from './CalSessions'
+import CountDown from './CountDown'
 
-import UseRaceInfo from '../../hooks/UseRaceInfo.jsx'
-import UseTextParams from '../../hooks/UseTextParams.jsx'
+import UseRaceInfo from '../../hooks/UseRaceInfo'
+import UseTextParams from '../../hooks/UseTextParams'
 
 import './CalRace.scss'
 
@@ -22,7 +22,7 @@ function CalRace () {
   const isDone = () => {
     if (fromToday < 0) {
       return (
-        <Link to={`/result/${yearText}/${roundText}`} className='results'>
+        <Link to={`/result/${yearText}/${roundText}/table`} className='results'>
           <h2>FULL RESULTS</h2>
         </Link>
       )

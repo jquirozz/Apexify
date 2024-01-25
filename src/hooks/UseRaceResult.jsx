@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
-import { format } from 'date-fns'
 
 import { IoCaretUpOutline, IoCaretDownOutline } from 'react-icons/io5'
 import { TiEquals } from 'react-icons/ti'
 
 function UseRaceResult ({ yearId, roundId }) {
-  const [info, setInfo] = useState({})
   const [result, setResult] = useState([])
+  const [fastestLap, setFastestLap] = useState({})
   const [loading, setLoading] = useState(null)
 
   useEffect(() => {
@@ -25,15 +24,6 @@ function UseRaceResult ({ yearId, roundId }) {
 
         if (races && races.length > 0) {
           const path = races[0]
-          const newInfo = {
-            raceName: path.raceName,
-            date: format(path.date, 'MM/dd'),
-
-            circuitId: path.Circuit?.circuitId,
-            circuitName: path.Circuit?.circuitName,
-            locality: path.Circuit?.Location?.locality,
-            country: path.Circuit?.Location?.country
-          }
 
           // RESULTS
           const finishValue = (pos, laps, points, status) => {
@@ -80,10 +70,21 @@ function UseRaceResult ({ yearId, roundId }) {
             teamNationality: r.Constructor.nationality
           }))
 
-          setInfo(newInfo)
-          console.log(newInfo)
+          const newFastestLap = resPath
+            ?.filter(r => {
+              return r.FastestLap?.rank === '1'
+            })
+            ?.map(r => {
+              return {
+                time: r.FastestLap?.Time?.time,
+                lap: r.FastestLap?.lap,
+                driverId: r.Driver?.driverId
+              }
+            })
+
+          setFastestLap(newFastestLap[0])
           setResult(newResult)
-          console.log(newResult)
+          console.log(newFastestLap[0])
         }
       }
     } catch (error) {
@@ -93,7 +94,7 @@ function UseRaceResult ({ yearId, roundId }) {
     }
   }
 
-  return { info, result, loading }
+  return { result, fastestLap, loading }
 }
 
 export default UseRaceResult

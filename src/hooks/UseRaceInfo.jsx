@@ -32,6 +32,7 @@ function UseRaceInfo ({ yearId, roundId }) {
             date: format(path.date, 'MM/dd'),
             time: formatTime(path.time),
 
+            raceName: path.raceName,
             circuitId: path.Circuit?.circuitId,
             circuitName: path.Circuit?.circuitName,
             locality: path.Circuit?.Location?.locality,
