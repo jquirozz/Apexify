@@ -70,21 +70,23 @@ function UseRaceResult ({ yearId, roundId }) {
             teamNationality: r.Constructor.nationality
           }))
 
-          const newFastestLap = resPath
-            ?.filter(r => {
-              return r.FastestLap?.rank === '1'
-            })
-            ?.map(r => {
-              return {
-                time: r.FastestLap?.Time?.time,
-                lap: r.FastestLap?.lap,
-                driverId: r.Driver?.driverId
-              }
-            })
+          if (parseInt(year) >= 2004) {
+            const newFastestLap = resPath
+              ?.filter(r => {
+                return r.FastestLap?.rank === '1'
+              })
+              ?.map(r => {
+                return {
+                  time: r.FastestLap?.Time?.time,
+                  lap: r.FastestLap?.lap,
+                  driverId: r.Driver?.driverId
+                }
+              })
+            setFastestLap(newFastestLap[0])
+            console.log(newFastestLap[0])
+          }
 
-          setFastestLap(newFastestLap[0])
           setResult(newResult)
-          console.log(newFastestLap[0])
         }
       }
     } catch (error) {
