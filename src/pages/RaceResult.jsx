@@ -41,8 +41,9 @@ function RaceResult () {
     <div className='RaceResult'>
       <div className='menu'>
         <header>
-          <h1>{yearText}</h1>
-          <h2>{race.raceName}</h2>
+          <h1>
+            {yearText} {race.raceName?.replace('Grand Prix', 'GP')}
+          </h1>
         </header>
         <section className='buttons'>
           {buttons.map(b => (

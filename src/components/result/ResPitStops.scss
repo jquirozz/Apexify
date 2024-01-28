@@ -1,0 +1,110 @@
+@use "/src/index.scss" as *;
+
+.ResPitStops {
+    display: grid;
+    gap: 1px;
+
+    color: #000;
+    background: #ccc;
+
+    .driver {
+        display: grid;
+        place-items: center;
+        grid-template-columns: 4.25rem 3fr 2fr 1fr;
+
+        gap: 0.25rem;
+        padding: 0.5rem;
+        padding-right: 0;
+
+        background: #f5f5f5;
+
+        .pos {
+            position: relative;
+            @include grid-center;
+            grid-template-columns: repeat(2, 1fr);
+
+            & h3 {
+                @include flex-center;
+                align-items: end;
+                aspect-ratio: 1;
+
+                font-size: 1.25rem;
+                font-weight: 900;
+            }
+            .gained {
+                padding-top: 0.15rem;
+                & svg {
+                    font-size: 1.75rem;
+                }
+            }
+        }
+        .name {
+            display: flex;
+            align-items: center;
+
+            width: 100%;
+            gap: 0.25rem;
+
+            & h3 {
+                font-size: 1rem;
+                font-weight: 500;
+            }
+            & h2 {
+                font-size: 1.25rem;
+                font-weight: 800;
+            }
+            & svg {
+                font-size: 1.5rem;
+            }
+        }
+        & h4 {
+            display: flex;
+            justify-content: end;
+            width: 100%;
+
+            text-align: end;
+            font-size: 0.75rem;
+            font-weight: 500;
+
+            color: #444;
+        }
+        & svg {
+            font-size: 1rem;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .ResTable {
+        .driver {
+            .name {
+                & h3 {
+                    font-size: 0.8rem;
+                }
+                & h2 {
+                    font-size: 1rem;
+                }
+                & svg {
+                    font-size: 1.5rem;
+                }
+                @media (max-width: 375px) {
+                    & h3 {
+                        display: none;
+                    }
+                    & h2 {
+                        font-size: 0.9rem;
+                    }
+                    & svg {
+                        font-size: 1rem;
+                    }
+                }
+            }
+            & h4 {
+                font-size: 0.5rem;
+            }
+            & h5 {
+                font-size: 0.7rem;
+            }
+        }
+    }
+}

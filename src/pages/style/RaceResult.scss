@@ -8,8 +8,6 @@
         grid-template-columns: auto;
     }
 
-    gap: 1rem;
-
     overflow: auto;
     height: $height;
 
@@ -26,15 +24,10 @@
             display: grid;
 
             & h1 {
-                font-size: 5rem;
-                line-height: 5rem;
+                font-size: 3rem;
+                line-height: 3rem;
 
                 font-weight: 900;
-            }
-            & h2 {
-                font-size: 2rem;
-                font-weight: 700;
-                color: #111;
             }
         }
         .buttons {
