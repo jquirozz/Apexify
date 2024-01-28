@@ -75,7 +75,7 @@
 }
 
 @media (max-width: 500px) {
-    .ResTable {
+    .ResPitStops {
         .driver {
             .name {
                 & h3 {
@@ -102,7 +102,7 @@
             & h4 {
                 font-size: 0.5rem;
             }
-            & h5 {
+            & svg {
                 font-size: 0.7rem;
             }
         }

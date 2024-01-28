@@ -5,8 +5,8 @@
     align-content: start;
 
     gap: 2rem;
-    padding: 1rem;
-    padding-top: 0;
+    padding: 0 1rem;
+    padding-bottom: 2rem;
 
     overflow-y: auto;
     min-height: $height;
@@ -21,7 +21,7 @@
         justify-content: space-between;
         flex-wrap: wrap;
 
-        gap: .5rem;
+        gap: 0.5rem;
 
         padding-bottom: 1rem;
         border-bottom: 5px solid #111;
@@ -93,7 +93,7 @@
 
             overflow: hidden;
             border-radius: 5px;
-            
+
             background: #111;
 
             .line {
@@ -137,5 +137,11 @@
             color: $sec;
             background: #111;
         }
+    }
+
+    @media (max-width: 700px) {
+        overflow-y: none;
+        min-height: 1px;
+        max-height: 10000px;
     }
 }

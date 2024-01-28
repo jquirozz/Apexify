@@ -18,8 +18,16 @@
 
         gap: 3px;
 
-        overflow: hidden;
+        overflow-x: hidden;
         height: $height;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
 
         & a {
             padding: 0.75rem;
@@ -57,6 +65,30 @@
         & a {
             & h3 {
                 font-weight: 800;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .Calendar {
+        grid-template-columns: auto;
+
+        .CalRounds {
+            grid-template-columns: auto;
+        }
+
+        .years,
+        .rounds {
+            flex-direction: row;
+            
+            height: 60px;
+            
+            & a {
+                flex: none;
+
+                display: grid;
+                place-items: center;
             }
         }
     }
