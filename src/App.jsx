@@ -13,6 +13,8 @@ import Standings from './pages/Standings'
 import DriverTable from './components/standing/DriverTable'
 import TeamTable from './components/standing/TeamTable'
 
+import Home from './pages/Home'
+
 import './App.scss'
 
 function App () {
@@ -21,6 +23,8 @@ function App () {
       <BrowserRouter>
         <NavBar />
         <Routes>
+          <Route path='/' element={<Home />} />
+
           <Route path='/calendar' element={<Calendar />}>
             <Route path=':yearId' element={<CalRounds />}>
               <Route path=':roundId' element={<CalRace />} />

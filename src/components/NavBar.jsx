@@ -1,20 +1,23 @@
 import { Link, NavLink } from 'react-router-dom'
 
 import './style/NavBar.scss'
-import { IoCalendarClear } from 'react-icons/io5'
+import { MdCalendarToday } from 'react-icons/md'
 
 function NavBar () {
   return (
     <div className='NavBar'>
+      <NavLink to='/calendar' className='navLink'>
+        <MdCalendarToday />
+        <h2>Calendar</h2>
+      </NavLink>
       <Link to='/' className='logo'>
-        <h2>HOME</h2>
+        <h2>PEXIFY</h2>
+        <img src='/logos/white.png' alt='Apexify Logo' />
       </Link>
-      <section className='links'>
-        <NavLink to='/calendar'>
-          <IoCalendarClear />
-          <h2>Calendar</h2>
-        </NavLink>
-      </section>
+      <NavLink to='/calendar' className='navLink'>
+        <MdCalendarToday />
+        <h2>Calendar</h2>
+      </NavLink>
     </div>
   )
 }

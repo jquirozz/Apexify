@@ -5,41 +5,39 @@
     align-items: center;
     justify-content: space-between;
 
-    padding-left: 0.75rem;
+    padding: 0 1.5rem;
     height: $navbarHeight;
 
-    background: $main;
+    border-bottom: 1px solid #222;
+
+    background: #000;
 
     .logo {
-        display: grid;
-        place-items: center;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        gap: 0.1rem;
 
+        & h2 {
+            font-size: 2rem;
+            font-weight: 800;
+        }
         & img {
-            height: $navbarHeight - 0.25rem;
-            aspect-ratio: 1;
-            object-fit: contain;
+            height: 2rem;
         }
     }
-    .links {
+    .navLink {
         display: flex;
-        gap: .2rem;
-        background: #fff;
+        align-items: center;
+        gap: 0.25rem;
 
-        & a {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0 1rem;
-
-            background: $main;
-
-            & svg {
-                font-size: 1.25rem;
-            }
-            & h2 {
-                font-size: 1.25rem;
-                font-weight: 600;
-            }
+        & svg {
+            font-size: 1.1rem;
+        }
+        & h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
         }
     }
 }
