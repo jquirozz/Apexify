@@ -18,22 +18,33 @@ function RaceResult () {
     {
       subText: 'Race',
       text: 'Result',
-      url: `/result/${yearId}/${roundId}/table`,
+      url: `/result/${yearId}/${roundId === 'full' ? 1 : roundId}/table`,
       svg: <HiMiniTrophy />
     },
     {
       subText: 'Fastest',
       text: 'PitStops',
-      url: `/result/${yearId}/${roundId}/pitstops`,
+      url: `/result/${yearId}/${roundId === 'full' ? 1 : roundId}/pitstops`,
       svg: <GiCarWheel />
     },
     {
       subText: 'After race',
       text: 'Standings',
-      url: `/standing/${yearId}/${roundId}/driver`,
+      url: `/result/${yearId}/${
+        roundId === 'full' ? 1 : roundId
+      }/standing/driver`,
+      svg: <GiPodium />
+    },
+    {
+      subText: 'Full Season',
+      text: 'Standings',
+      url: `/result/${yearId}/full/standing/driver`,
       svg: <GiPodium />
     }
   ]
+  const newButtons = buttons.filter(
+    b => !(b.text === 'PitStops' && parseInt(yearText) < 2010)
+  )
 
   if (loading) return <Loader />
 
@@ -41,12 +52,11 @@ function RaceResult () {
     <div className='RaceResult'>
       <div className='menu'>
         <header>
-          <h1>
-            {yearText} {race.raceName?.replace('Grand Prix', 'GP')}
-          </h1>
+          <h1>{yearText}</h1>
+          <h2>{race.raceName?.replace('Grand Prix', 'GP')}</h2>
         </header>
         <section className='buttons'>
-          {buttons.map(b => (
+          {newButtons.map(b => (
             <NavLink to={b.url} key={b.url}>
               {b.svg}
               <div className='text'>

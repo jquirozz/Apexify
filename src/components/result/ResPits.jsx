@@ -1,12 +1,9 @@
 /* eslint-disable react/prop-types */
 import UseDriverPitStop from '../../hooks/UseDriverPitStops'
-import Loader from '../Loader'
 import './ResPits.scss'
 
 function ResPits ({ yearId, roundId, driverId }) {
-  const { pit, loading } = UseDriverPitStop({ yearId, roundId, driverId })
-
-  if (loading) return <Loader />
+  const { pit } = UseDriverPitStop({ yearId, roundId, driverId })
 
   return (
     <div className='ResPits'>

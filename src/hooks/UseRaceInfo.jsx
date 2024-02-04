@@ -8,7 +8,9 @@ function UseRaceInfo ({ yearId, roundId }) {
   const [race, setRace] = useState({})
 
   useEffect(() => {
-    fetchData({ year: yearId, round: roundId })
+    if (yearId && roundId !== undefined) {
+      fetchData({ year: yearId, round: roundId })
+    }
   }, [yearId, roundId])
 
   const fetchData = async ({ year, round }) => {
