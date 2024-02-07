@@ -12,19 +12,10 @@
 
     background: #000;
 
-    .logo {
-        display: flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: center;
-        gap: 0.1rem;
-
+    & a {
         & h2 {
             font-size: 2rem;
             font-weight: 800;
-        }
-        & img {
-            height: 2rem;
         }
     }
     .navLink {

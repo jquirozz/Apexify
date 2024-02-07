@@ -10,9 +10,11 @@ function Standings () {
         <NavLink to={`/result/${yearId}/${roundId}/standing/driver`}>
           <h3>Drivers Standing</h3>
         </NavLink>
-        <NavLink to={`/result/${yearId}/${roundId}/standing/team`}>
-          <h3>Teams Standing</h3>
-        </NavLink>
+        {parseInt(yearId) > 1957 && (
+          <NavLink to={`/result/${yearId}/${roundId}/standing/team`}>
+            <h3>Teams Standing</h3>
+          </NavLink>
+        )}
       </header>
       <Outlet />
     </div>

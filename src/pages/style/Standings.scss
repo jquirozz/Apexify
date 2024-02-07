@@ -3,7 +3,6 @@
 .Standings {
     display: grid;
     align-content: start;
-    height: $height;
 
     & header {
         display: flex;
@@ -12,7 +11,6 @@
         flex-wrap: wrap;
 
         gap: 0.5rem;
-        padding: 0.5rem 0;
 
         & a {
             flex: 1;
@@ -26,7 +24,7 @@
             padding: 1rem;
 
             border-radius: 5px;
-            background: $main;
+            background: #000;
 
             & h3 {
                 text-transform: uppercase;

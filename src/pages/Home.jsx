@@ -20,19 +20,19 @@ function Home () {
           id={1}
           title='Calendar'
           desc='Full seasons calendar available now from 2024 to 1950!'
-          imgPath='/public/img/1.jpeg'
+          imgPath='/img/1.jpeg'
         />
         <InfoCard
           id={2}
           title='History'
           desc='From Max Verstappen and its glorious 2023!'
-          imgPath='/public/img/2.jpg'
+          imgPath='/img/2.jpg'
         />
         <InfoCard
           id={3}
           title='Teams'
           desc='Every team in history of the sport in one site!'
-          imgPath='/public/img/3.jpg'
+          imgPath='/img/3.jpg'
         />
       </section>
       <Footer />

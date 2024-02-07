@@ -7,7 +7,9 @@ import UseRaceInfo from '../hooks/UseRaceInfo'
 
 import './style/RaceResult.scss'
 import { HiMiniTrophy } from 'react-icons/hi2'
-import { GiCarWheel, GiPodium } from 'react-icons/gi'
+import { GiCarWheel } from 'react-icons/gi'
+import { IoIosPodium } from 'react-icons/io'
+import { IoCalendarClear } from 'react-icons/io5'
 
 function RaceResult () {
   const { yearId, roundId } = useParams()
@@ -33,13 +35,13 @@ function RaceResult () {
       url: `/result/${yearId}/${
         roundId === 'full' ? 1 : roundId
       }/standing/driver`,
-      svg: <GiPodium />
+      svg: <IoIosPodium />
     },
     {
-      subText: 'Full Season',
-      text: 'Standings',
-      url: `/result/${yearId}/full/standing/driver`,
-      svg: <GiPodium />
+      subText: 'Season',
+      text: 'Calendar',
+      url: `/calendar/${yearId}`,
+      svg: <IoCalendarClear />
     }
   ]
   const newButtons = buttons.filter(
@@ -51,10 +53,6 @@ function RaceResult () {
   return (
     <div className='RaceResult'>
       <div className='menu'>
-        <header>
-          <h1>{yearText}</h1>
-          <h2>{race.raceName?.replace('Grand Prix', 'GP')}</h2>
-        </header>
         <section className='buttons'>
           {newButtons.map(b => (
             <NavLink to={b.url} key={b.url}>
@@ -67,7 +65,13 @@ function RaceResult () {
           ))}
         </section>
       </div>
-      <Outlet />
+      <div className='table'>
+        <header className='race'>
+          <h1>{yearText}</h1>
+          <h2>{race.raceName?.replace('Grand Prix', 'GP')}</h2>
+        </header>
+        <Outlet />
+      </div>
     </div>
   )
 }

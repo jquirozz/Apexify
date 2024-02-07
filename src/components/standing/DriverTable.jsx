@@ -1,15 +1,13 @@
-import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import UseRoundDriverStandings from './../../hooks/UseRoundDriverStandings'
 import TableRow from './TableRow'
+import Loader from '../Loader'
 
 function DriverTable () {
   const { yearId, roundId } = useParams()
-  const { drivers } = UseRoundDriverStandings({ yearId, roundId })
+  const { drivers, loading } = UseRoundDriverStandings({ yearId, roundId })
 
-  useEffect(() => {
-    console.log(roundId)
-  }, [roundId])
+  if (loading) return <Loader />
 
   return (
     <div className='StandingTable'>

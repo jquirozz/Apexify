@@ -7,10 +7,12 @@ function UseRoundDriverStandings ({ yearId, roundId }) {
   useEffect(() => {
     let isMounted = true
 
-    const fetchData = async ({ url }) => {
+    const fetchData = async ({ yearId, roundId }) => {
       try {
         setLoading(true)
-        const res = await fetch(url)
+        const res = await fetch(
+          `http://ergast.com/api/f1/${yearId}/${roundId}/driverStandings.json`
+        )
 
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`)
@@ -34,14 +36,8 @@ function UseRoundDriverStandings ({ yearId, roundId }) {
       }
     }
 
-    if (yearId && roundId !== undefined) {
-      if (roundId === 'full') {
-        const url = `http://ergast.com/api/f1/${yearId}/driverStandings.json`
-        fetchData({ url })
-      } else {
-        const url = `http://ergast.com/api/f1/${yearId}/${roundId}/driverStandings.json`
-        fetchData({ url })
-      }
+    if (yearId && roundId) {
+      fetchData({ yearId, roundId })
     }
 
     // Cleanup function to set isMounted to false when component is unmounted

@@ -6,13 +6,12 @@ import { MdCalendarToday } from 'react-icons/md'
 function NavBar () {
   return (
     <div className='NavBar'>
-      <NavLink to='/calendar' className='navLink'>
+      {/* <NavLink to='/calendar' className='navLink'>
         <MdCalendarToday />
         <h2>Calendar</h2>
-      </NavLink>
+      </NavLink> */}
       <Link to='/' className='logo'>
-        <h2>PEXIFY</h2>
-        <img src='/logos/white.png' alt='Apexify Logo' />
+        <h2>APEXIFY</h2>
       </Link>
       <NavLink to='/calendar' className='navLink'>
         <MdCalendarToday />

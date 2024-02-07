@@ -2,10 +2,9 @@
 
 .RaceResult {
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: minmax(150px, 300px) 3fr;
 
     overflow: auto;
-    height: $height;
 
     color: #000;
     background: #eee;
@@ -13,28 +12,9 @@
     .menu {
         display: grid;
         align-content: start;
-        gap: 0.5rem;
         padding: 0.5rem;
+        padding-bottom: 0;
 
-        & header {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-
-            & h1 {
-                font-size: 3rem;
-                line-height: 3rem;
-
-                font-weight: 900;
-            }
-            & h2 {
-                font-size: 2.5rem;
-                line-height: 2.5rem;
-
-                font-weight: 400;
-            }
-        }
         .buttons {
             display: flex;
             flex-wrap: wrap;
@@ -42,11 +22,11 @@
 
             & a {
                 flex: 1;
-                @include flex-center;
 
-                min-width: 200px;
+                display: grid;
+                grid-template-columns: auto 1fr;
 
-                gap: 0.5rem;
+                gap: 1.5rem;
                 padding: 1.5rem;
 
                 border-radius: 5px;
@@ -55,10 +35,15 @@
                 background: #000;
 
                 & svg {
-                    font-size: 3rem;
+                    display: grid;
+                    place-items: center;
+
+                    font-size: 2.5rem;
                 }
                 .text {
-                    @include grid-center;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
 
                     & h3 {
                         font-size: 0.7rem;
@@ -74,9 +59,41 @@
         }
     }
 
-    @media (max-width: 700px) {
-        grid-template-columns: auto;
+    .table {
+        display: grid;
+        align-content: start;
+
+        .race {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+
+            width: 100%;
+
+            gap: 0.5rem;
+            padding: 0 0.5rem;
+
+            font-size: 1.5rem;
+
+            & h1 {
+                font-weight: 900;
+            }
+            & h2 {
+                font-weight: 400;
+            }
+        }
+
+        // ResultTable
     }
 
-    // ResultTable
+    @media (max-width: 700px) {
+        grid-template-columns: auto;
+
+        .table {
+            .race {
+                padding-top: 0.5rem;
+            }
+        }
+    }
 }
