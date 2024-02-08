@@ -11,7 +11,7 @@ function UseRoundDriverStandings ({ yearId, roundId }) {
       try {
         setLoading(true)
         const res = await fetch(
-          `http://ergast.com/api/f1/${yearId}/${roundId}/constructorStandings.json`
+          `https://ergast.com/api/f1/${yearId}/${roundId}/constructorStandings.json`
         )
 
         if (!res.ok) {

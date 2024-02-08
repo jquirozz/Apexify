@@ -2,6 +2,7 @@
 
 .RaceResult {
     display: grid;
+    align-content: start;
     grid-template-columns: minmax(150px, 300px) 3fr;
 
     overflow: auto;
@@ -30,6 +31,8 @@
                 padding: 1.5rem;
 
                 border-radius: 5px;
+                border-left: 3px solid #000;
+                border-top: 3px solid #000;
 
                 color: #eee;
                 background: #000;
@@ -52,7 +55,24 @@
                     }
                     & h2 {
                         text-transform: uppercase;
+                        font-weight: 800;
                         font-size: 1rem;
+                    }
+                }
+            }
+            .active {
+                background: $main;
+
+                & svg {
+                    color: #000;
+                }
+
+                .text {
+                    & h3 {
+                        color: #333;
+                    }
+                    & h2 {
+                        color: #000;
                     }
                 }
             }

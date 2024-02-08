@@ -24,6 +24,8 @@
             padding: 1rem;
 
             border-radius: 5px;
+            border-left: 3px solid #000;
+            border-top: 3px solid #000;
             background: #000;
 
             & h3 {
@@ -31,6 +33,14 @@
                 font-size: 1rem;
                 font-weight: 800;
                 color: #eee;
+            }
+        }
+        .active {
+            cursor: default;
+            background: $main;
+
+            & h3 {
+                color: #000;
             }
         }
     }

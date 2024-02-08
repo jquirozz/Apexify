@@ -13,6 +13,7 @@ import Standings from './pages/Standings'
 import DriverTable from './components/standing/DriverTable'
 import TeamTable from './components/standing/TeamTable'
 
+import NotFound from './pages/NotFound'
 import Home from './pages/Home'
 
 import './App.scss'
@@ -23,6 +24,7 @@ function App () {
       <BrowserRouter>
         <NavBar />
         <Routes>
+          <Route path='*' element={<NotFound />} />
           <Route path='/' element={<Home />} />
 
           <Route path='/calendar' element={<Calendar />}>
