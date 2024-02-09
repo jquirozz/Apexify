@@ -1,0 +1,69 @@
+@use "/src/index.scss" as *;
+
+.Home {
+    display: grid;
+    background: #000;
+
+    & header {
+        @include grid-center;
+
+        max-height: 70vh;
+        width: 100%;
+        aspect-ratio: 1.5;
+
+        .title {
+            display: grid;
+            gap: 1rem;
+
+            & h1 {
+                position: relative;
+                font-size: 6rem;
+                font-weight: 800;
+
+                @media (max-width: 500px) {
+                    font-size: 4.5rem;
+                }
+                @media (max-width: 380px) {
+                    font-size: 3.25rem;
+                }
+
+                // Underline
+                &::after {
+                    content: "";
+
+                    position: absolute;
+                    bottom: 0;
+                    left: -1.25rem;
+
+                    width: calc(100% + 2.5rem);
+                    height: 0.25rem;
+
+                    border-radius: 999px;
+
+                    background: $main;
+                }
+            }
+            .words {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                & h3 {
+                    text-transform: uppercase;
+                    font-size: 1rem;
+                    font-weight: 700;
+
+                    color: #bbb;
+                }
+            }
+        }
+    }
+
+    .panels {
+        display: grid;
+        gap: 3rem;
+        padding: 2rem 0;
+    }
+
+    // .Footer
+}

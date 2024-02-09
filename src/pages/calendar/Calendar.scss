@@ -1,0 +1,83 @@
+@use "/src/index.scss" as *;
+
+.Calendar {
+    display: grid;
+    grid-template-columns: auto 1fr; // Years + (Rounds + Race)
+    align-items: start;
+    gap: 0.5rem;
+
+    .Years,
+    .Rounds {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+
+        overflow-y: hidden;
+        height: $height;
+        min-width: 125px;
+
+        & a {
+            @include grid-center;
+            padding: 0.75rem 1.25rem;
+
+            color: #000;
+            background: #eee;
+
+            & h3 {
+                font-size: 1.5rem;
+                font-weight: 900;
+            }
+        }
+        .active {
+            color: $main;
+            background: #000;
+        }
+    }
+    .RoundSection {
+        display: grid;
+        grid-template-columns: auto 1fr; // Rounds + race
+        gap: 0.5rem;
+
+        .Rounds {
+            min-width: 275px;
+
+            & a {
+                display: grid;
+                gap: 0.75rem;
+                align-items: center;
+                justify-items: start;
+                grid-template-columns: 1fr 4fr;
+
+                & svg {
+                    width: 50px;
+                }
+                & h3 {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .Calendar {
+        grid-template-columns: auto; // auto 1fr
+        grid-template-rows: auto 1fr;
+
+        .Years,
+        .Rounds {
+            flex-direction: row; // column
+
+            height: 60px;
+            overflow-y: auto; // hidden
+            overflow-x: auto;
+
+            & a {
+                flex: none; // 1
+            }
+        }
+        .RoundSection {
+            grid-template-columns: auto; // auto 1fr
+        }
+    }
+}

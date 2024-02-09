@@ -1,0 +1,93 @@
+@use "/src/index.scss" as *;
+
+.Result {
+    display: grid;
+    align-content: start;
+    grid-template-columns: minmax(150px, 300px) 3fr;
+
+    overflow: auto;
+
+    color: #000;
+    background: #eee;
+
+    .menu {
+        display: grid;
+        align-content: start;
+
+        padding: 0.5rem;
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+
+            & a {
+                flex: 1;
+
+                display: grid;
+                grid-template-columns: auto 1fr;
+
+                gap: 1.5rem;
+                padding: 1.5rem;
+
+                border-radius: 5px;
+                border-left: 3px solid #000;
+                border-top: 3px solid #000;
+
+                color: #eee;
+                background: #000;
+
+                & svg {
+                    display: grid;
+                    place-items: center;
+
+                    font-size: 2.5rem;
+                }
+                .text {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    & h3 {
+                        font-size: 0.7rem;
+                        font-weight: 500;
+                        color: #aaa;
+                    }
+                    & h2 {
+                        text-transform: uppercase;
+                        font-weight: 800;
+                        font-size: 1rem;
+                    }
+                }
+            }
+            .active {
+                background: $main;
+
+                & svg {
+                    color: #000;
+                }
+
+                .text {
+                    & h3 {
+                        color: #333;
+                    }
+                    & h2 {
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+
+    .table {
+        display: grid;
+        align-content: start;
+
+        // CountryBanner
+        // table
+    }
+
+    @media (max-width: 700px) {
+        grid-template-columns: auto;
+    }
+}

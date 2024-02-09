@@ -1,10 +1,10 @@
-import './style/NotFound.scss'
-import { AiOutlineStop } from 'react-icons/ai'
+import './NotFound.scss'
+import { MdDangerous } from 'react-icons/md'
 
 function NotFound () {
   return (
     <div className='NotFound'>
-      <AiOutlineStop />
+      <MdDangerous />
       <div className='text'>
         <h1>BOX BOX!</h1>
         <h2>PAGE NOT FOUND</h2>

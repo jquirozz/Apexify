@@ -1,0 +1,26 @@
+@use '/src/index.scss' as *;
+
+.IsPending {
+    @include flex-center;
+    gap: 1rem;
+
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    
+    & header {
+        @include flex-center;
+
+        & h2 {
+            font-size: 5.5rem;
+            font-weight: 900;
+            line-height: 5.5rem;
+        }
+        & h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 1.5rem;
+        }
+    }
+
+    // CountDown
+}

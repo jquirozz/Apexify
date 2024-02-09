@@ -1,34 +1,8 @@
 @use "/src/index.scss" as *;
 
 .NavBar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
     padding: 0 1.5rem;
     height: $navbarHeight;
 
     border-bottom: 1px solid #222;
-
-    background: #000;
-
-    & a {
-        & h2 {
-            font-size: 2rem;
-            font-weight: 800;
-        }
-    }
-    .navLink {
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-
-        & svg {
-            font-size: 1.1rem;
-        }
-        & h2 {
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-    }
 }

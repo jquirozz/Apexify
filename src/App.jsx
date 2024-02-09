@@ -1,20 +1,24 @@
+// MODULES
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 
-import Calendar from './pages/Calendar'
-import CalRounds from './components/calendar/CalRounds'
-import CalRace from './components/calendar/CalRace'
+// PAGES
+// Calendar
+import Calendar from './pages/calendar/Calendar'
+import Rounds from './pages/calendar/components/Rounds'
+import Race from './pages/calendar/components/Race'
 
-import RaceResult from './pages/RaceResult'
-import ResTable from './components/result/ResTable'
-import ResPitStops from './components/result/ResPitStops'
+// Result: Table, PitStops & After-race standings
+import Result from './pages/result/Result'
+import Table from './pages/result/components/Table'
+import PitDriver from './pages/result/components/PitDriver'
 
-import Standings from './pages/Standings'
-import DriverTable from './components/standing/DriverTable'
-import TeamTable from './components/standing/TeamTable'
+import Standings from './pages/standings/Standings'
+import DriverTable from './pages/standings/components/DriverTable'
+import TeamTable from './pages/standings/components/TeamTable'
 
+import Home from './pages/home/Home'
 import NotFound from './pages/NotFound'
-import Home from './pages/Home'
 
 import './App.scss'
 
@@ -24,18 +28,18 @@ function App () {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path='*' element={<NotFound />} />
           <Route path='/' element={<Home />} />
+          <Route path='*' element={<NotFound />} />
 
           <Route path='/calendar' element={<Calendar />}>
-            <Route path=':yearId' element={<CalRounds />}>
-              <Route path=':roundId' element={<CalRace />} />
+            <Route path=':yearId' element={<Rounds />}>
+              <Route path=':roundId' element={<Race />} />
             </Route>
           </Route>
 
-          <Route path='/result/:yearId/:roundId' element={<RaceResult />}>
-            <Route path='table' element={<ResTable />} />
-            <Route path='pitstops' element={<ResPitStops />} />
+          <Route path='/result/:yearId/:roundId' element={<Result />}>
+            <Route path='table' element={<Table />} />
+            <Route path='pitstops' element={<PitDriver />} />
 
             <Route path='standing' element={<Standings />}>
               <Route path='driver' element={<DriverTable />} />

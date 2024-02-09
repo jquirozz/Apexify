@@ -31,8 +31,10 @@ function UseRaceInfo ({ yearId, roundId }) {
           const path = races[0]
           const info = {
             fromToday: fromToday(path.date),
+            year: path.season,
             date: format(path.date, 'MM/dd'),
             time: formatTime(path.time),
+            round: path.round,
 
             raceName: path.raceName,
             circuitId: path.Circuit?.circuitId,
@@ -57,7 +59,11 @@ function UseRaceInfo ({ yearId, roundId }) {
                 name: 'QUALY',
                 date: path?.Qualifying?.date
               },
-              { name: 'SPRINT', date: path?.Sprint?.date }
+              { name: 'SPRINT', date: path?.Sprint?.date },
+              {
+                name: 'RACE',
+                date: path.date
+              }
             ]
           }
 
@@ -100,6 +106,10 @@ function UseRaceInfo ({ yearId, roundId }) {
             info.sessions = formattedSessions
           } else if (year >= 2006 && year <= 2020) {
             const oldSessions = [
+              {
+                name: 'RACE',
+                date: format(new Date(path.date), 'MM/dd')
+              },
               {
                 name: 'QUALY',
                 date: format(subDays(new Date(path.date), 1), 'MM/dd')

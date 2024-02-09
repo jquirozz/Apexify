@@ -1,0 +1,66 @@
+@use "/src/index.scss" as *;
+
+.NavMobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 100%;
+
+    .goHome {
+        & h2 {
+            font-weight: 800;
+            color: #fff;
+            background: #000;
+        }
+    }
+
+    .links {
+        position: absolute;
+        z-index: 100;
+        right: 0;
+        top: $navbarHeight;
+
+        width: 100%;
+        
+        display: none;
+        align-items: end;
+        justify-content: start;
+        flex-direction: column;
+
+        background: #000a;
+
+        & a {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            
+            width: 100%;
+
+            gap: 0.25rem;
+            padding: 1rem 1.75rem;
+
+            text-transform: uppercase;
+            font-weight: 600;
+
+            border-bottom: 1px solid #222;
+
+            transition: all 100ms ease-in-out;
+            color: #fff;
+            background: #000;
+
+            & svg {
+                display: grid;
+                place-items: center;
+            }
+
+            &:hover {
+                color: #000;
+                background-color: $main;
+            }
+        }
+    }
+    .show {
+        display: flex;
+    }
+}

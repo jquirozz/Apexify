@@ -7,7 +7,6 @@ $main: var(--main);
 $sec: var(--sec);
 
 $navbarHeight: 4rem;
-$gap: 0.5rem;
 $height: calc(100dvh - $navbarHeight);
 
 // EXPORTING
@@ -63,10 +62,6 @@ input,
 textarea {
     border: none;
     outline: none;
-}
-
-a {
-    color: inherit;
 }
 
 p {

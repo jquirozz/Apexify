@@ -1,6 +1,8 @@
 @use "/src/index.scss" as *;
 
 .App {
+    position: relative;
+    
     display: grid;
     grid-template-rows: auto 1fr;
 

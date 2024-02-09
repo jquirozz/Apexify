@@ -1,0 +1,34 @@
+@use "/src/index.scss" as *;
+
+.CountDown {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1px;
+
+    width: 275px;
+
+    overflow: hidden;
+    border-radius: 5px;
+    
+    background: #fff;
+
+    & section {
+        @include flex-center;
+
+        padding: 0.5rem;
+
+        color: #fff;
+        background: #000;
+
+        & h2 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        & h3 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #ddd;
+        }
+    }
+}

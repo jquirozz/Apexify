@@ -1,0 +1,29 @@
+.PitStops {
+    display: grid;
+    padding-bottom: 1rem;
+    padding-left: 3.25rem;
+
+    background: #f5f5f5;
+
+    .pit {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 2rem 5rem 1fr;
+
+        & h2 {
+            font-size: 1.25rem;
+            font-weight: 900;
+        }
+        & h3 {
+            font-size: 1rem;
+            font-weight: 800;
+        }
+        & h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    }
+}
+.hide {
+    display: none;
+}

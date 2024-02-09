@@ -1,0 +1,13 @@
+@use "/src/index.scss" as *;
+
+.NavButtton {
+    color: #fff;
+    background: #000;
+
+    & h3 {
+    }
+}
+.active {
+    color: #000;
+    background: $main;
+}

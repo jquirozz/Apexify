@@ -1,0 +1,48 @@
+@use "/src/index.scss" as *;
+
+.NavFull {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 100%;
+
+    .goHome {
+        & h2 {
+            font-weight: 800;
+            color: #fff;
+            background: #000;
+        }
+    }
+
+    .links {
+        display: flex;
+        gap: 0.75rem;
+
+        & a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 0.25rem;
+            padding: 0.25rem;
+
+            font-weight: 600;
+
+            transition: border-bottom 100ms ease-in-out;
+            border-bottom: 2px solid transparent;
+
+            color: #fff;
+            background: #000;
+
+            & svg {
+                display: grid;
+                place-items: center;
+            }
+
+            &:hover {
+                border-bottom: 2px solid $main;
+            }
+        }
+    }
+}
