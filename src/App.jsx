@@ -31,12 +31,16 @@ function App () {
           <Route path='/' element={<Home />} />
           <Route path='*' element={<NotFound />} />
 
+          <Route path='standing/:yearId' element={<Standings />}>
+            <Route path='driver' element={<DriverTable />} />
+            <Route path='team' element={<TeamTable />} />
+          </Route>
+
           <Route path='/calendar' element={<Calendar />}>
             <Route path=':yearId' element={<Rounds />}>
               <Route path=':roundId' element={<Race />} />
             </Route>
           </Route>
-
           <Route path='/result/:yearId/:roundId' element={<Result />}>
             <Route path='table' element={<Table />} />
             <Route path='pitstops' element={<PitDriver />} />

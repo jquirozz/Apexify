@@ -1,26 +1,24 @@
-import NavFull from './NavFull'
-import NavMobile from './NavMobile'
-import UseScreenWidth from '../hooks/UseScreenWidth.jsx'
+import NavFull from './navBar/NavFull'
+import NavMobile from './navBar/NavMobile'
+import UseScreenWidth from '../hooks/UseScreenWidth'
+import UseCurrentYear from '../hooks/UseCurrentYear.jsx'
 
 import './style/NavBar.scss'
-import { FaCalendarAlt } from 'react-icons/fa'
-import { IoPeople } from 'react-icons/io5'
-
-const ITEMS = [
-  {
-    text: 'Calendar',
-    url: '/calendar',
-    svg: <FaCalendarAlt />
-  },
-  {
-    text: 'Teams',
-    url: '/',
-    svg: <IoPeople />
-  }
-]
 
 function NavBar () {
   const { width } = UseScreenWidth()
+  const { currentYear } = UseCurrentYear()
+
+  const ITEMS = [
+    {
+      text: 'Calendar',
+      url: `/calendar/${currentYear}`
+    },
+    {
+      text: 'Standings',
+      url: '/standing/current/driver'
+    }
+  ]
 
   return (
     <div className='NavBar'>

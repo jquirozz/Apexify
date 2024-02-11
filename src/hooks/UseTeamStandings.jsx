@@ -1,18 +1,16 @@
 import { useState, useEffect } from 'react'
 
-function UseRoundDriverStandings ({ yearId, roundId }) {
+function UseTeamStandings ({ yearId, roundId }) {
   const [teams, setTeams] = useState([])
   const [loading, setLoading] = useState(null)
 
   useEffect(() => {
     let isMounted = true
 
-    const fetchData = async ({ yearId, roundId }) => {
+    const fetchData = async url => {
       try {
         setLoading(true)
-        const res = await fetch(
-          `https://ergast.com/api/f1/${yearId}/${roundId}/constructorStandings.json`
-        )
+        const res = await fetch(url)
 
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`)
@@ -36,8 +34,16 @@ function UseRoundDriverStandings ({ yearId, roundId }) {
       }
     }
 
-    if (yearId && roundId) {
-      fetchData({ yearId, roundId })
+    if (yearId) {
+      if (roundId !== undefined) {
+        fetchData(
+          `https://ergast.com/api/f1/${yearId}/${roundId}/constructorStandings.json`
+        )
+      } else {
+        fetchData(
+          `https://ergast.com/api/f1/${yearId}/constructorStandings.json`
+        )
+      }
     }
 
     // Cleanup function to set isMounted to false when component is unmounted
@@ -49,4 +55,4 @@ function UseRoundDriverStandings ({ yearId, roundId }) {
   return { teams, loading }
 }
 
-export default UseRoundDriverStandings
+export default UseTeamStandings

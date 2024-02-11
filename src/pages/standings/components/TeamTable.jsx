@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom'
-import UseRoundTeamStandings from '../../../hooks/UseRoundTeamStandings'
+import UseTeamStandings from '../../../hooks/UseTeamStandings'
 import TableRow from './TableRow'
 import Loader from '../../../components/Loader'
 
 function DriverTable () {
   const { yearId, roundId } = useParams()
-  const { teams, loading } = UseRoundTeamStandings({ yearId, roundId })
+  const { teams, loading } = UseTeamStandings({ yearId, roundId })
 
   if (loading) return <Loader />
 

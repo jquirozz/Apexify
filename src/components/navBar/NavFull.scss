@@ -21,27 +21,20 @@
 
         & a {
             display: flex;
-            align-items: center;
+            align-items: end;
             justify-content: center;
 
             gap: 0.25rem;
             padding: 0.25rem;
 
+            text-transform: uppercase;
             font-weight: 600;
 
-            transition: border-bottom 100ms ease-in-out;
-            border-bottom: 2px solid transparent;
-
-            color: #fff;
+            color: #eee;
             background: #000;
 
-            & svg {
-                display: grid;
-                place-items: center;
-            }
-
             &:hover {
-                border-bottom: 2px solid $main;
+                color: #fff;
             }
         }
     }
