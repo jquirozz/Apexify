@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { format, subDays } from 'date-fns'
 
-import { formatTime } from '../services/formatTime'
+import { formatTime } from '../../services/formatTime'
 
 function UseRaceInfo ({ yearId, roundId }) {
   const [loading, setLoading] = useState(null)

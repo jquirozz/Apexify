@@ -1,5 +1,5 @@
 // MODULES
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar'
 
 // PAGES
@@ -17,18 +17,22 @@ import Standings from './pages/standings/Standings'
 import DriverTable from './pages/standings/components/DriverTable'
 import TeamTable from './pages/standings/components/TeamTable'
 
-import Home from './pages/home/Home'
+import UseCurrentYear from './hooks/UseCurrentYear'
 import NotFound from './pages/NotFound'
 
 import './App.scss'
 
 function App () {
+  const { currentYear } = UseCurrentYear()
   return (
     <div className='App'>
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route
+            path='/'
+            element={<Navigate to={`/calendar/${currentYear}`} />}
+          />
           <Route path='*' element={<NotFound />} />
 
           <Route path='standing/:yearId' element={<Standings />}>
