@@ -9,8 +9,8 @@ import IsPending from './race/IsPending'
 import IsCompleted from './race/IsCompleted'
 
 // Hooks
-import UseRaceInfo from '../../../hooks/UseRaceInfo'
-import UseRaceWinner from '../../../hooks/UseRaceWinner'
+import UseRaceInfo from '../../../hooks/race/UseRaceInfo'
+import UseRaceWinner from '../../../hooks/race/UseRaceWinner'
 
 // Style
 import './Race.scss'
