@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 
 import Loader from '../../../components/Loader'
 
-import UseRaceResult from '../../../hooks/UseRaceResult'
+import UseRaceResult from '../../../hooks/race/UseRaceResult'
 
 import './Table.scss'
 import { MdTimer } from 'react-icons/md'

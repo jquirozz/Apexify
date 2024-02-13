@@ -4,7 +4,7 @@ import Loader from '../../components/Loader'
 import NavButton from '../../components/buttons/NavButton'
 import CountryBanner from '../../components/miscelaneous/CountryBanner'
 
-import UseRaceInfo from '../../hooks/UseRaceInfo'
+import UseRaceInfo from '../../hooks/race/UseRaceInfo'
 
 import './Result.scss'
 import { HiMiniTrophy } from 'react-icons/hi2'

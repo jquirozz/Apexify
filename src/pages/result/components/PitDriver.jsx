@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import UseRaceResult from '../../../hooks/UseRaceResult'
+import UseRaceResult from '../../../hooks/race/UseRaceResult'
 import Loader from '../../../components/Loader'
 import PitStops from './pitstops/PitStops'
 import './PitDriver.scss'
