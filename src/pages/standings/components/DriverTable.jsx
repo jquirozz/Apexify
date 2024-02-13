@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import UseDriverStandings from '../../../hooks/UseDriverStandings'
+import UseDriverStandings from '../../../hooks/standings/UseDriverStandings'
 import TableRow from './TableRow'
 import Loader from '../../../components/Loader'
 

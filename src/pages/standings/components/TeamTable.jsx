@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import UseTeamStandings from '../../../hooks/UseTeamStandings'
+import UseTeamStandings from '../../../hooks/standings/UseTeamStandings'
 import TableRow from './TableRow'
 import Loader from '../../../components/Loader'
 
