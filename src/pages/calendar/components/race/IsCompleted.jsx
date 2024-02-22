@@ -43,7 +43,7 @@ function IsCompleted ({ info, winner }) {
             </Link>
           </section>
         </header>
-        <Sessions sessions={sessions} date={date} />
+        {sessions.lenght > 0 && <Sessions sessions={sessions} date={date} />}
       </footer>
     </div>
   )
