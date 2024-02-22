@@ -1,14 +1,14 @@
-@use '/src/index.scss' as *;
+@use "/src/index.scss" as *;
 
 .IsPending {
     @include flex-center;
-    gap: 1rem;
 
     padding-top: 2rem;
     padding-bottom: 3rem;
-    
+
     & header {
         @include flex-center;
+        padding-bottom: 1rem;
 
         & h2 {
             font-size: 5.5rem;
@@ -23,4 +23,23 @@
     }
 
     // CountDown
+    & footer {
+        width: 275px;
+
+        padding-top: 1px;
+
+        overflow: hidden;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+        & h3 {
+            @include grid-center;
+            padding: 0.5rem;
+
+            font-weight: 300;
+
+            color: #ddd;
+            background: #000;
+        }
+    }
 }

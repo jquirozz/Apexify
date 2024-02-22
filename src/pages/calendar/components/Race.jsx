@@ -26,7 +26,12 @@ function CalRace () {
     return <IsCompleted info={race} winner={winner} />
   } else {
     return (
-      <IsPending year={race.year} name={race.raceName} date={race.fromToday} />
+      <IsPending
+        year={race.year}
+        name={race.raceName}
+        fromDate={race.fromToday}
+        date={race.date}
+      />
     )
   }
 }

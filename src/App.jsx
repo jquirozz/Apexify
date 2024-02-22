@@ -17,13 +17,14 @@ import Standings from './pages/standings/Standings'
 import DriverTable from './pages/standings/components/DriverTable'
 import TeamTable from './pages/standings/components/TeamTable'
 
-import UseCurrentYear from './hooks/UseCurrentYear'
+import UseNextRound from './hooks/race/UseNextRound'
 import NotFound from './pages/NotFound'
 
 import './App.scss'
 
 function App () {
-  const { currentYear } = UseCurrentYear()
+  const { year, round } = UseNextRound()
+
   return (
     <div className='App'>
       <BrowserRouter>
@@ -31,7 +32,11 @@ function App () {
         <Routes>
           <Route
             path='/'
-            element={<Navigate to={`/calendar/${currentYear}`} />}
+            element={
+              year && round ? (
+                <Navigate to={`/calendar/${year}/${round}`} />
+              ) : null
+            }
           />
           <Route path='*' element={<NotFound />} />
 

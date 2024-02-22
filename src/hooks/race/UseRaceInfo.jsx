@@ -32,7 +32,7 @@ function UseRaceInfo ({ yearId, roundId }) {
           const info = {
             fromToday: fromToday(path.date),
             year: path.season,
-            date: format(path.date, 'MM/dd'),
+            date: path.date,
             time: formatTime(path.time),
             round: path.round,
 
